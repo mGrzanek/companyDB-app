@@ -69,7 +69,7 @@ router.delete('/products/:id', (req, res) => {
       res.json({ message: 'OK' });
     })
     .catch((err) => {
-      res.status(500).json({ message: 'OK' });
+      res.status(500).json({ message: err });
     })
 });
 
