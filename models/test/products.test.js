@@ -30,7 +30,4 @@ describe('Product', () => {
             });
         }
     });
-    after(() => {
-        mongoose.models = {};
-    });
 });
