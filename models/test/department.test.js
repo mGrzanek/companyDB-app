@@ -3,9 +3,6 @@ const mongoose = require('mongoose');
 const expect = require('chai').expect;
 
 describe('Department', () => {
-    after(() => {
-        mongoose.models = {};
-      });
     it('should throw an error if no "name" arg', () => {
         const dep = new Department({}); 
         dep.validateSync(err => {
@@ -36,7 +33,10 @@ describe('Department', () => {
             const dep = new Department({ name });
             dep.validateSync(err => {
                 expect(err.errors.name).to.not.exist;
-            })
+            });
         }
-    })
+    });
+    after(() => {
+        mongoose.models = {};
+    });
 });
